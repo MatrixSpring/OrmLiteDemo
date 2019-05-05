@@ -3,11 +3,13 @@ package com.dawn.applicationdb;
 import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dawn.applicationdb.bean.Student;
-import com.dawn.applicationdb.dbioc.db.DaoSupportFactory;
-import com.dawn.applicationdb.dbioc.db.IDaoSupport;
+import com.dawn.applicationdb.dbioc.DaoSupportFactory;
+import com.dawn.applicationdb.dbioc.IDaoSupport;
 import com.dawn.applicationdb.permission.PermissionListener;
 import com.dawn.applicationdb.permission.PermissionUtil;
 
@@ -16,11 +18,21 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView tv_onclick;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testDB();
+        tv_onclick = findViewById(R.id.tv_onclick);
+        tv_onclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                testDB();
+                Toast.makeText(MainActivity.this,  "点击数据库！", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void testDB(){

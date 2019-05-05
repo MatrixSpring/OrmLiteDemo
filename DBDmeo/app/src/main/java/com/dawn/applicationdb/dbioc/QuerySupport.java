@@ -1,4 +1,4 @@
-package com.dawn.applicationdb.dbioc.db;
+package com.dawn.applicationdb.dbioc;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
